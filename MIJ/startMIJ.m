@@ -17,7 +17,7 @@ function startMIJ(ijPath)
         javaaddpath([javaPath 'mij.jar']);
     end
     if(ijLost)
-        javaaddpath([javaPath 'ij.jar']);
+        javaaddpath(['C:\MBF_ImageJ\' 'ij.jar']);
     end
     
     %start ImageJ

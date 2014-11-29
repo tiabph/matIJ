@@ -22,7 +22,7 @@ function varargout = matIJ_main(varargin)
 
 % Edit the above text to modify the response to help matIJ_main
 
-% Last Modified by GUIDE v2.5 12-Nov-2014 13:25:32
+% Last Modified by GUIDE v2.5 15-Nov-2014 10:10:58
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -63,6 +63,8 @@ startMIJ(parameters.ImageJPath);
 handles.parameters = parameters;
 handles.rootPath = rootPath;
 
+filterList = LoadFilters(fullfile(rootPath,'plugins','Filters'));
+handles = LoadPluginMenu(handles.Plugins, filterList, handles);
 % Update handles structure
 guidata(hObject, handles);
 
@@ -97,3 +99,30 @@ function matIJ_CloseRequestFcn(hObject, eventdata, handles)
 stopMIJ();
 % Hint: delete(hObject) closes the figure
 delete(hObject);
+
+
+% --------------------------------------------------------------------
+function File_Callback(hObject, eventdata, handles)
+% hObject    handle to File (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+
+% --------------------------------------------------------------------
+function Plugins_Callback(hObject, eventdata, handles)
+% hObject    handle to Plugins (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+
+% --------------------------------------------------------------------
+function New_Callback(hObject, eventdata, handles)
+% hObject    handle to New (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% --------------------------------------------------------------------
+function Open_Callback(hObject, eventdata, handles)
+% hObject    handle to Open (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
